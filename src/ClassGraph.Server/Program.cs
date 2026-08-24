@@ -4,6 +4,11 @@ using System.Text.Json.Serialization;
 using ClassGraph.Server;
 
 var builder = WebApplication.CreateBuilder(args);
+var renderPort = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrWhiteSpace(renderPort))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{renderPort}");
+}
 var proxyKey = builder.Configuration["ClassGraph:ProxyKey"];
 var allowedOrigin = builder.Configuration["ClassGraph:AllowedOrigin"];
 
