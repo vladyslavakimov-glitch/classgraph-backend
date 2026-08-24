@@ -18,6 +18,7 @@ COPY --from=build /app/publish .
 
 ENV ASPNETCORE_URLS=http://0.0.0.0:10000
 ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ClassGraph__AllowedOrigin=https://classgraph-oop-labor.vladyslavakimov.chatgpt.site
 EXPOSE 10000
 
 USER $APP_UID
