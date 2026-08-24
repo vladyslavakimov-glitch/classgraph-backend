@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: classgraph-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:10000
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ClassGraph__ProxyKey
+        sync: false
